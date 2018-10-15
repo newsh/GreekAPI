@@ -75,7 +75,7 @@ p4.then((personID) => {
         }
       }
 
-    db.query('SELECT * FROM CHILD_PARENT_VIEW_'+language_identifier+' WHERE (parentID = ? OR parentID = ?) AND childID != ? GROUP BY childID',[fatherID,motherID,personID], function(err, result) {
+    db.query('SELECT childID, childGender, childName FROM CHILD_PARENT_VIEW_'+language_identifier+' WHERE (parentID = ? OR parentID = ?) AND childID != ? GROUP BY childID',[fatherID,motherID,personID], function(err, result) {
       resolve(result);
     });
     });
